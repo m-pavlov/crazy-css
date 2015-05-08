@@ -1,0 +1,248 @@
+.container
+        {
+            position: relative;
+            margin: 10vw auto 0 auto;
+            width: 800px;
+            height: 800px;
+            border: solid 1px #ddd;
+        }
+
+/* controls */
+
+.arrow
+        {
+            position: absolute;
+            border: none;
+            background: rgba(100,200,100,0.2);
+            transition: background-color 1s ease;
+        }
+        .arrow:hover
+                {
+                    background: rgba(100,200,100,0.5);
+                    cursor: pointer;
+                }
+        .a-top,
+        .a-bottom
+                {
+                    left: 0;
+                    width: 100%;
+                    height: 50px;
+                }
+        .a-top
+                {
+                    top: -50px;
+                    border-radius: 50px 50px 0 0;
+                }
+        .a-bottom
+                {
+                    bottom: -50px;
+                    border-radius: 0 0 50px 50px;
+                }
+        .a-left,
+        .a-right
+                {
+                    top: 0;
+                    width: 50px;
+                    height: 100%;
+                }
+        .a-left
+                {
+                    left: -50px;
+                    border-radius: 50px 0 0 50px;
+                }
+        .a-right
+                {
+                    right: -50px;
+                    border-radius: 0 50px 50px 0;
+                }
+
+/* /controls */
+
+
+.cube
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -10vw 0 0 -10vw;
+            width: 20vw;
+            height: 20vw;
+
+            transition: all 1s ease;
+
+            -webkit-transform-style: preserve-3d;
+            -webkit-transform-origin: 50% 50%;
+            -webkit-transform: perspective(900px) rotate3d(1,1,0,-45deg);
+
+            transform-style: preserve-3d;
+            transform-origin: 50% 50%;
+            transform: perspective(900px) rotate3d(1,1,0,-45deg);
+        }
+
+/* rotating */
+
+.a-top:hover ~ .cube
+        {
+            -webkit-transform: perspective(900px) rotate3d(180,-45,0,-135deg);
+            transform: perspective(900px) rotate3d(180,-45,0,-135deg);
+        }
+.a-bottom:hover ~ .cube
+        {
+            -webkit-transform: perspective(900px) rotate3d(180,-45,0,135deg);
+            transform: perspective(900px) rotate3d(180,-45,0,135deg);
+        }
+.a-left:hover ~ .cube
+        {
+            -webkit-transform: perspective(900px) rotate3d(55,180,0,-219deg);
+            transform: perspective(900px) rotate3d(55,180,0,-219deg);
+        }
+.a-right:hover ~ .cube
+        {
+            -webkit-transform: perspective(900px) rotate3d(-45,180,0,135deg);
+            transform: perspective(900px) rotate3d(-45,180,0,135deg);
+        }
+
+/* /rotating */
+
+
+/* faces */
+.cube span
+        {
+            position: absolute;
+            display: block;
+            width: 20vw;
+            height: 20vw;
+            box-shadow: inset 0 0 15px rgba(255,255,255,0.3),
+                        inset -30px -30px 8vw rgba(0,0,0,0.3);
+        }
+.cube .n1
+        {
+            top: 0;
+            left: 0;
+            background-color: #d00;
+            opacity: 0.9;
+
+            -webkit-transform: translate3d(0,0,10vw);
+            transform: translate3d(0,0,10vw);
+        }
+.cube .n2
+        {
+            top: 0;
+            left: 100%;
+            background-color: #dd0;
+            opacity: 0.9;
+
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+            -webkit-transform: translate3d(0,0,10vw) rotate3d(0,1,0,90deg);
+            transform: translate3d(0,0,10vw) rotate3d(0,1,0,90deg);
+        }
+.cube .n3
+        {
+            top: 100%;
+            left: 0;
+            background-color: #999;
+            opacity: 0.9;
+
+            -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+            -webkit-transform: translate3d(0,0,10vw) rotate3d(1,0,0,-90deg);
+            transform: translate3d(0,0,10vw) rotate3d(1,0,0,-90deg);
+        }
+.cube .n4
+        {
+            top: 0;
+            right: 100%;
+            background-color: #04d;
+            opacity: 0.9;
+
+            -webkit-transform-origin: 100% 0;
+            transform-origin: 100% 0;
+
+            -webkit-transform: translate3d(0,0,10vw) rotate3d(0,1,0,-90deg);
+            transform: translate3d(0,0,10vw) rotate3d(0,1,0,-90deg);
+        }
+.cube .n5
+        {
+            bottom: 100%;
+            left: 0;
+            background-color: #0dd;
+            opacity: 0.9;
+
+            -webkit-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+
+            -webkit-transform: translate3d(0,0,10vw) rotate3d(1,0,0,90deg);
+            transform: translate3d(0,0,10vw) rotate3d(1,0,0,90deg);
+        }
+.cube .n6
+        {
+            top: 0;
+            left: 0;
+            background-color: #6a0;
+            opacity: 0.9;
+
+            -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+
+            -webkit-transform: translate3d(0,0,-10vw) rotate3d(1,0,0,180deg);
+            transform: translate3d(0,0,-10vw) rotate3d(1,0,0,180deg);
+        }
+
+/* /faces */
+
+
+
+
+/*  dots */
+
+.cube b
+        {
+            position: absolute;
+            margin: -10px 0 0 -10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: inset -3px -3px 5px rgba(0,0,0,0.3);
+            opacity: 0.9;
+        }
+.cube .d-25-25
+        {
+            top: 25%;
+            left: 25%;
+        }
+.cube .d-25-75
+        {
+            top: 25%;
+            left: 75%;
+        }
+.cube .d-50-25
+        {
+            top: 50%;
+            left: 25%;
+        }
+.cube .d-50-50
+        {
+            top: 50%;
+            left: 50%;
+        }
+.cube .d-50-75
+        {
+            top: 50%;
+            left: 75%;
+        }
+.cube .d-75-25
+        {
+            top: 75%;
+            left: 25%;
+        }
+.cube .d-75-75
+        {
+            top: 75%;
+            left: 75%;
+        }
+
+/*  /dots */
